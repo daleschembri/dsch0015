@@ -61,6 +61,12 @@
             //adCTATextPosition:'bottom right',
             //vastTimeout:5000,
             //maxAllowedVastTagRedirects: 1,
+            vastAdvanced: {
+                vastLoadedCallback:       (function() { console.log("Here one event") }),
+                noVastVideoCallback:      (function() { console.log("Here another") }),
+                vastVideoSkippedCallback: (function() { console.log("Here one more") }),
+                vastVideoEndedCallback:   (function() { console.log("Here's the last") })
+            }
         }
         }
     );
