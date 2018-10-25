@@ -5,9 +5,22 @@
       <script src="https://cdn.fluidplayer.com/v2/current/fluidplayer.min.js"></script>
 </head>
 <body>
+  <style>
+    .video-responsive {
+      width:60%;
+      height:60%;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .video-responsive {
+      width:80%;
+      height:80%;
+    }
+    }
+  </style>
   <div style="text-align:center;">
-<div style="width:60%;height:60%;">
-<video id='video-id' height="410" width="729">
+<div class="video-responsive">
+<video id='video-id'>
     <source src='https://1397054093.rsc.cdn77.org/BMIT.mp4' type='video/mp4'/>
 </video>
 </div>
