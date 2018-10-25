@@ -5,73 +5,10 @@
       <script src="https://cdn.fluidplayer.com/v2/current/fluidplayer.min.js"></script>
 </head>
 <body>
+  <div style="text-align:center;">
 <video id='video-id' height="410" width="729">
     <source src='https://1397054093.rsc.cdn77.org/BMIT.mp4' type='video/mp4'/>
 </video>
-
-<!-- <script>
-    fluidPlayer(
-        'video-id',
-        {
-            layoutControls: {
-		fillToContainer: false,
-		primaryColor: false,
-		posterImage: false,
-		autoPlay: false,
-		playButtonShowing: true,
-		playPauseAnimation: true,
-		mute: false,
-		logo: {
-			imageUrl: null,
-			position: 'top left',
-			clickUrl: null,
-			opacity: 1,
-			mouseOverImageUrl: null,
-			imageMargin: '2px',
-			hideWithControls: false,
-			showOverAds: false
-		},
-		htmlOnPauseBlock: {
-			html: null,
-			height: null,
-			width: null
-		},
-		allowDownload: false,
-		allowTheatre: true,
-		playbackRateEnabled: false,
-		controlBar: {
-			autoHide: false,
-			autoHideTimeout: 3,
-			animated: true
-		},
-            },
-            vastOptions: {
-            adList: [
-                {
-                    roll: 'midRoll',
-                    vastTag: 'https://1397054093.rsc.cdn77.org/Vast.xml',
-                    timer: 40,
-                }
-            ]
-            //skipButtonCaption:'Skip ad in [seconds]',
-            //skipButtonClickCaption:'Skip ad <span class="skip_button_icon"></span>',
-            //adText:null,
-            //adTextPosition:'top left',
-            //adCTAText:'Visit now!',
-            //adCTATextPosition:'bottom right',
-            //vastTimeout:5000,
-            //maxAllowedVastTagRedirects: 1,
-            vastAdvanced: {
-                vastLoadedCallback:       (function() { console.log("Here one event") }),
-                noVastVideoCallback:      (function() { console.log("Here another") }),
-                vastVideoSkippedCallback: (function() { console.log("Here one more") }),
-                vastVideoEndedCallback:   (function() { console.log("Here's the last") })
-            }
-        }
-        }
-    );
-</script> -->
-
 <script>
 fluidPlayer(
    'video-id',
@@ -96,5 +33,6 @@ fluidPlayer(
 </script>
 <br>
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDMRX1Xc2mOopmAp0k5uhY89oauAe9HoCN14PqHv88N5QYoA/viewform?embedded=true" width="640" height="1337" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+</div>
 </body>
 </html>
