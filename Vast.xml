@@ -1,0 +1,35 @@
+<VAST version="2.0">
+  <Ad id="static">
+    <InLine>
+      <AdSystem>Static VAST Template</AdSystem>
+      <AdTitle>Static VAST Tag</AdTitle>
+      <Impression>https://1397054093.rsc.cdn77.org/pixel.gif</Impression>
+      <Creatives>
+        <Creative>
+          <Linear>
+            <Duration>00:00:40</Duration>
+            <TrackingEvents>
+              <Tracking event="start">https://1397054093.rsc.cdn77.org/pixel.gif</Tracking>
+              <Tracking event="firstQuartile">https://1397054093.rsc.cdn77.org/pixel.gif</Tracking>
+              <Tracking event="midpoint">https://1397054093.rsc.cdn77.org/pixel.gif</Tracking>
+              <Tracking event="thirdQuartile">https://1397054093.rsc.cdn77.org/pixel.gif</Tracking>
+              <Tracking event="complete">https://1397054093.rsc.cdn77.org/pixel.gif</Tracking>
+              <Tracking event="pause">https://1397054093.rsc.cdn77.org/pixel.gif</Tracking>
+              <Tracking event="mute">https://1397054093.rsc.cdn77.org/pixel.gif</Tracking>
+              <Tracking event="fullscreen">https://1397054093.rsc.cdn77.org/pixel.gif</Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough>http://www.jwplayer.com/</ClickThrough>
+              <ClickTracking>https://1397054093.rsc.cdn77.org/pixel.gif</ClickTracking>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile type="video/mp4" bitrate="300" width="480" height="270">
+                https://1397054093.rsc.cdn77.org/BI.mp4
+              </MediaFile>
+            </MediaFiles>
+           </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>
