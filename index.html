@@ -1,56 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="https://cdn.fluidplayer.com/v2/current/fluidplayer.min.css" type="text/css"/>
-      <script src="https://cdn.fluidplayer.com/v2/current/fluidplayer.min.js"></script>
-</head>
+  <head></head>
+  <style>table {
+    border: 1px solid black;
+}
+
+table tr td:nth-of-type(1) {
+    font-weight: bold;
+}</style>
+
 <body>
-  <style>
-    .video-responsive {
-      width:60%;
-      height:60%;
-      margin:auto;
-    }
+<table id="myTable" width="25%">
+    <tr valign="top">
+        <td>Destination URL</td>
+        <td>
+            <input type="text" size="20" id="link" onchange="function calc() {
+    var table = document.getElementById("myTable");
+    var total = document.getElementById("total");
+    var activity = document.getElementById("activity").value;
+    var link = document.getElementById("link").value;
     
-    @media only screen and (max-width: 768px) {
-      .video-responsive {
-      width:80%;
-      height:80%;
-      margin:auto;
+    if (link.slice(-1)=='/') {
+      link = link.slice(0, -1);
     }
+    total.value= link+"/?utm_source=mdf&utm_medium=partner&utm_campaign="+activity;
+}"/>
+        </td>
+    </tr>
+    <tr valign="top">
+        <td>Activity ID</td>
+        <td>
+            <input type="text" size="10" id="activity" onchange="function calc() {
+    var table = document.getElementById("myTable");
+    var total = document.getElementById("total");
+    var activity = document.getElementById("activity").value;
+    var link = document.getElementById("link").value;
+    
+    if (link.slice(-1)=='/') {
+      link = link.slice(0, -1);
     }
-  </style>
-  <div style="text-align:center;">
-<div class="video-responsive">
-<video id='video-id'>
-    <source src='https://1397054093.rsc.cdn77.org/BMIT.mp4' type='video/mp4'/>
-</video>
-</div>
+    total.value= link+"/?utm_source=mdf&utm_medium=partner&utm_campaign="+activity;
+}"/>
+        </td>
+    </tr>
+    <tr valign="top">
+        <td>Tagged URL</td>
+        <td>
+            <textarea rows="2" readonly style="height: 34px;" id="total"></textarea>
+        </td>
+    <td><button onclick="copyUrl()">Copy text</button></td>
+    </tr>
+    
+</table>
+
 <script>
-fluidPlayer(
-   'video-id',
-    {
-        layoutControls: {
-            // Layout Controls
-            fillToContainer: true
-        },
-        vastOptions: {
-            adList: [
-                {
-                    roll: 'midRoll',
-                    vastTag: 'Vast.xml',
-                    timer: 10
-                }
-            ],
-            showProgressbarMarkers: true,
-            skipButtonCaption:          'Skip ad in [seconds]',
-            skipButtonClickCaption:     'Skip ad <span class="skip_button_icon"></span>'
-        }
+function calc() {
+    var table = document.getElementById("myTable");
+    var total = document.getElementById("total");
+    var activity = document.getElementById("activity").value;
+    var link = document.getElementById("link").value;
+    
+    if (link.slice(-1)=='/') {
+      link = link.slice(0, -1);
     }
-);
+    total.value= link+"/?utm_source=mdf&utm_medium=partner&utm_campaign="+activity;
+}
 </script>
-<br>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDMRX1Xc2mOopmAp0k5uhY89oauAe9HoCN14PqHv88N5QYoA/viewform?embedded=true" width="100%" height="1337" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-</div>
 </body>
 </html>
