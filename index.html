@@ -14,33 +14,13 @@ table tr td:nth-of-type(1) {
     <tr valign="top">
         <td>Destination URL</td>
         <td>
-            <input type="text" size="20" id="link" onchange="function calc() {
-    var table = document.getElementById("myTable");
-    var total = document.getElementById("total");
-    var activity = document.getElementById("activity").value;
-    var link = document.getElementById("link").value;
-    
-    if (link.slice(-1)=='/') {
-      link = link.slice(0, -1);
-    }
-    total.value= link+"/?utm_source=mdf&utm_medium=partner&utm_campaign="+activity;
-}"/>
+            <input type="text" size="20" id="link" onchange="calc();"/>
         </td>
     </tr>
     <tr valign="top">
         <td>Activity ID</td>
         <td>
-            <input type="text" size="10" id="activity" onchange="function calc() {
-    var table = document.getElementById("myTable");
-    var total = document.getElementById("total");
-    var activity = document.getElementById("activity").value;
-    var link = document.getElementById("link").value;
-    
-    if (link.slice(-1)=='/') {
-      link = link.slice(0, -1);
-    }
-    total.value= link+"/?utm_source=mdf&utm_medium=partner&utm_campaign="+activity;
-}"/>
+            <input type="text" size="10" id="activity" onchange="calc();"/>
         </td>
     </tr>
     <tr valign="top">
