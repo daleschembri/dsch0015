@@ -1,30 +1,108 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
   <style>
-table tr td:nth-of-type(1) {
-    font-weight: bold;
-}</style>
+  .Button-iconWrapper {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+  .Button-icon {
+    margin-right: .6em;
+}
+  .Icon {
+    display: inherit;
+    fill: currentColor;
+    height: 1.14286em;
+    width: 1.14286em;
+}
+  .label {
+    width: 30%;
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+    margin: 0 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #818c97;
+    background-color: #fff;
+    text-rendering: optimizeLegibility;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.Button {
+    margin-top: 20px;
+    background: rgba(0,0,0,.075);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.42857em;
+    padding: .42857em 1em;
+    -webkit-transition: background-color .2s cubic-bezier(.4,0,.2,1),border-color .2s cubic-bezier(.4,0,.2,1);
+    transition: background-color .2s cubic-bezier(.4,0,.2,1),border-color .2s cubic-bezier(.4,0,.2,1);
+}
+</style>
+</head>
 <body>
-<table id="myTable" width="50%">
+<table id="myTable" width="450px;">
     <tr valign="top">
-        <td>Destination URL</td>
+        <td class="label">Destination URL</td>
         <td>
-            <input type="text" size="20" id="link" onchange="calc();"/>
+            <input type="text" id="link" class="form-control" onchange="calc();validateURL();" placeholder="Destination URL"/>
         </td>
     </tr>
     <tr valign="top">
-        <td>Activity ID</td>
+        <td class="label">Activity ID</td>
         <td>
-            <input type="text" size="10" id="activity" onchange="calc();"/>
+            <input type="text" id="activity" class="form-control" onchange="calc();validateID();" placeholder="Activity ID #"/>
         </td>
     </tr>
     <tr valign="top">
-        <td>Tagged URL</td>
+        <td class="label">Tagged URL</td>
         <td>
-            <textarea rows="2" readonly style="height: 34px;" id="total"></textarea>
+            <textarea rows="2" readonly style="resize: vertical;" class="form-control" id="total"></textarea>
         </td>
-    <td><button onclick="copyUrl()">Copy text</button></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+      <button class="Button" id="copybutton" style="display:none;" onclick="copyUrl()"><span class="Button-iconWrapper"><span class="Button-icon"><svg class="Icon" viewBox="0 0 24 24"><g xmlns="http://www.w3.org/2000/svg" id="icon-content-paste">
+      <path d="M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z"/>
+    </g></svg></span>Copy URL</span></button></td>
     </tr>
     
 </table>
@@ -40,6 +118,71 @@ function calc() {
       link = link.slice(0, -1);
     }
     total.value= link+"/?utm_source=mdf&utm_medium=partner&utm_campaign="+activity;
+    
+    if ((isUrlValid(link))&&(isIDValid(activity))){
+      //alert("URL is Valid");
+    }
+    else {
+      //alert("Not Valid");
+      
+    }
+}
+
+function validateID() {
+  var link = document.getElementById("link").value;
+  var activity = document.getElementById("activity").value;
+  
+  if (isIDValid(activity)) {
+      document.getElementById("activity").style.border = "1px solid #0aa000";
+    } else { document.getElementById("activity").style.border = "1px solid #a00000"; }
+  
+  if ((isUrlValid(link))&&(isIDValid(activity))){
+      document.getElementById("copybutton").style.display = "";
+    } else {
+      document.getElementById("copybutton").style.display = "none";
+    }
+}
+
+function validateURL() {
+  var link = document.getElementById("link").value;
+  var activity = document.getElementById("activity").value;
+  if (isUrlValid(link)) {
+      document.getElementById("link").style.border = "1px solid #0aa000";
+    } else { document.getElementById("link").style.border = "1px solid #a00000"; }
+  
+  if ((isUrlValid(link))&&(isIDValid(activity))){
+      document.getElementById("copybutton").style.display = "";
+    } else {
+      document.getElementById("copybutton").style.display = "none";
+    }
+}
+
+function copyUrl() {
+  /* Get the text field */
+  var copyText = document.getElementById("total");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+}
+
+function isUrlValid(userInput) {
+    var res = userInput.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    if(res == null)
+        return false;
+    else
+        return true;
+}
+
+function isIDValid(userInput) {
+    var res = userInput.match('^[0-9]+$');
+    if(res == null)
+        return false;
+    else
+        return true;
 }
 </script>
 </body>
